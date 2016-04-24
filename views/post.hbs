@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="/stylesheets/post.css">
+    {{>head}}
+    <script src='/javascripts/marked.min.js'></script>
+    <script src='/javascripts/post.js'></script>
+</head>
+<body>
+
+<form method="post" action="/admin/post/{{id}}">
+  <div  class="row">
+    <div class="col-sm-6">
+      <div class="form-group">
+        <label for="title">标题</label>
+        <input id="title" name="title" class="form-control">
+      </div>
+      <textarea id="content" name="content" class="form-control"></textarea>
+    </div>
+    
+    <div class="col-sm-6">
+      <div id="preview"></div>
+    </div>
+  </div>
+  <button type='submit' class='btn btn-success'>创建</button>
+</form>
+</form>
+</body>
+</html>

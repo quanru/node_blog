@@ -1,0 +1,7 @@
+#content {
+    height: 385px;
+}
+#preview {
+    height: 460px;
+    overflow: auto;
+}
