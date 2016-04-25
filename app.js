@@ -15,6 +15,8 @@ import passport from 'passport';
 import {Strategy as LocalStrategy} from 'passport-local';
 import User from './models/user';
 import authRequired from './utils/auth-required';
+import hbsHelper from './utils/hbs-helper';
+
 var app = express();
 //connect mongodb
 mongoose.connect('mongodb://localhost/test');
@@ -23,8 +25,13 @@ mongoose.connect('mongodb://localhost/test');
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
 hbs.registerPartials(__dirname + '/views/partials');
+hbsHelper(hbs);
 
-// uncomment after placing your favicon in /public
+app.use((req, res, next) => {
+    res.locals.user = req.user;
+    console.log(res.locals.user);
+    next();
+});
 app.use(favicon(__dirname + '/public/favicon.ico'));
 app.use(logger('dev'));
 app.use(bodyParser.json());

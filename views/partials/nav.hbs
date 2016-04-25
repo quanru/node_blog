@@ -1,0 +1,17 @@
+<nav class="navbar navbar-static" role="navigation">
+  <div class="container">
+
+    <a class="navbar-brand" href="/">博客</a>
+
+    <div class="navbar-right">
+      <li class="navbar-right">
+        {{#if user}}
+           user.username
+        {{else}}
+           <a class="btn" href="/account/login">登录</a>
+           <a class="btn" href="/account/register">注册</a>
+        {{/if}}
+      </li>
+    </div>
+  </div>
+</nav>
