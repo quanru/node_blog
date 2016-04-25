@@ -27,11 +27,6 @@ app.set('view engine', 'hbs');
 hbs.registerPartials(__dirname + '/views/partials');
 hbsHelper(hbs);
 
-app.use((req, res, next) => {
-    res.locals.user = req.user;
-    console.log(res.locals.user);
-    next();
-});
 app.use(favicon(__dirname + '/public/favicon.ico'));
 app.use(logger('dev'));
 app.use(bodyParser.json());
@@ -46,6 +41,10 @@ passport.deserializeUser(User.deserializeUser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.static(path.join(__dirname, 'node_modules')));
 
+app.use('/', (req, res, next) => {
+    res.locals.user = req.user;
+    next();
+});
 app.use('/', routes);
 app.use('/users', users);
 app.use('/account', account);

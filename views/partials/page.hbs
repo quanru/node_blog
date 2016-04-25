@@ -1,0 +1,14 @@
+<nav>
+  <ul class="pagination">
+    <li><a href="?page={{pager.prev}}">&laquo;</a></li>
+    {{#each pager.pages}}
+      <li 
+        {{#if isCurrentPage}} 
+          class="active" 
+        {{/if}}>
+        <a href="?page={{this}}">{{this}}</a>
+      </li>
+    {{/each}}
+    <li><a href="?page={{pager.next}}">&raquo;</a></li>
+  </ul>
+</nav>

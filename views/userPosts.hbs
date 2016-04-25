@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+{{>head}}
+<body>
+  {{#each posts}}
+  <div class="post">
+    <h3 class="page-header">
+      <a href="/post/{{id}}">{{title}}</a>
+    </h3>
+    <div class="post-content">
+      {{content}}
+    </div>
+  </div>
+{{/each}}
+{{>page}}
+</body>
+</html>
