@@ -5,7 +5,7 @@ var smtpConfig = config.smtp;
 var transporter = nodemailer.createTransport(smtpConfig);
 
 var defaultMail = {
-    from: 'quanru <quanru@yeah.net',
+    from: 'quanru <quanru@yeah.net>',
     text: 'hello'
 };
 

@@ -18,7 +18,7 @@ router.route('/')
         req.user.save((err, user) => {
              if (err) next(err);
              res.render('profile', {user: user});
-             res.redirect('/');
+             res.redirect('/admin/profile');
          });
     });
 

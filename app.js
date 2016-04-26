@@ -7,7 +7,6 @@ import bodyParser from 'body-parser';
 import hbs from 'hbs';
 import mongoose from 'mongoose';
 import routes from './routes';
-import users from './routes/users';
 import account from './routes/account';
 import admin from './routes/admin';
 import session from 'express-session';
@@ -47,7 +46,6 @@ app.use((req, res, next) => {
     next();
 });
 app.use('/', routes);
-app.use('/users', users);
 app.use('/account', account);
 app.use('/admin', authRequired, admin);
 // catch 404 and forward to error handler

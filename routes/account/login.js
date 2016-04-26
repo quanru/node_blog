@@ -1,10 +1,15 @@
 import express from 'express';
 import passport from 'passport';
 import url from 'url';
+import isEmpty from '../../utils/isEmpty';
 
 var router = express.Router();
+var app = express();
 
 router.get('/', (req, res) => {
+  var url_parts = url.parse(req.url, true);
+  var query = url_parts.query;
+  app.locals.next = query;
     res.render('login.hbs', {
         title: '登陆'
     });
@@ -13,9 +18,6 @@ router.get('/', (req, res) => {
 router.post(
   '/', 
   (req, res, next) => {
-    // var url_parts = url.parse(req.url, true);
-    // var query = url_parts.query;
-    // console.log(req);
     passport.authenticate('local', (err, user, info) => {
     if(err) return next(err);
     if(!user) {
@@ -25,8 +27,10 @@ router.post(
     req.logIn(user, (err) => {
       if(err) return next(err);
       req.session.authenticated = true;
-      if(query) {
-        // return res.redirect(query.toString());
+      var jump = app.locals.next;
+      console.log(jump);
+      if(!isEmpty(jump)) {
+        return res.redirect(jump.next);
       } else {
         return res.redirect('/');
       }
