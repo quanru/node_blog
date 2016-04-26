@@ -1,15 +1,8 @@
 var nodemailer = require('nodemailer');
+var config = require('../config');
+var smtpConfig = config.smtp;
 
-var config = {
-    host: 'smtp.yeah.net',
-    port: 25,
-    auth: {
-        user: 'quanru@yeah.net',
-        pass: '***'
-    }
-};
-
-var transporter = nodemailer.createTransport(config);
+var transporter = nodemailer.createTransport(smtpConfig);
 
 var defaultMail = {
     from: 'quanru <quanru@yeah.net',

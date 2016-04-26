@@ -2,7 +2,7 @@ import express from 'express';
 import User from '../../models/user';
 import mailer from '../../utils/mailer';
 import crypto from 'crypto';
-
+import config from '../../config';
 var router = express.Router();
 
 router.get('/', (req, res) => {
@@ -22,13 +22,13 @@ router.post('/', (req, res, next) => {
       crypto.randomBytes(20, (err, buf) => {
       user.activeToken = user._id + buf.toString('hex');
       user.activeExpires = Date.now() + 24 * 3600 * 1000;
-      var link = 'http://localhost:3007/account/active/' + user.activeToken;
+      var link = config.schema + config.host + ':' + config.port + '/account/active/' + user.activeToken;
 
       mailer({
         to: username,
         subject: '欢迎注册劝儒的博客',
         text: '请完成注册',
-        html: '请点击 <a href = " ' + link + '"此处</a> 激活。'
+        html: '请点击如下链接激活：' + link
       });
 
       user.save((err, user) => {

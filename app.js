@@ -16,10 +16,11 @@ import {Strategy as LocalStrategy} from 'passport-local';
 import User from './models/user';
 import authRequired from './utils/auth-required';
 import hbsHelper from './utils/hbs-helper';
+import config from './config';
 
 var app = express();
 //connect mongodb
-mongoose.connect('mongodb://localhost/test');
+mongoose.connect(config.mongodb);
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -41,7 +42,7 @@ passport.deserializeUser(User.deserializeUser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.static(path.join(__dirname, 'node_modules')));
 
-app.use('/', (req, res, next) => {
+app.use((req, res, next) => {
     res.locals.user = req.user;
     next();
 });
@@ -57,7 +58,7 @@ app.use((req, res, next) => {
 });
 
 // error handlers
-// app.set('env', process.env.NODE_ENV || 'development');
+app.set('env', config.env);
 // development error handler
 // will print stacktrace
 if (app.get('env') === 'development') {

@@ -1,0 +1,15 @@
+export default {
+    env: process.env.NODE_ENV || 'production',
+    schema: 'http://',
+    host: '127.0.0.1',
+    port: 3007,
+    mongodb: 'mongodb://localhost/test',
+    smtp: {
+        host: 'smtp.yeah.net',
+        port: 25,
+        auth: {
+            user: 'quanru@yeah.net',
+            passwd: 'password'
+        }
+    }
+};

@@ -4,14 +4,15 @@
     <a class="navbar-brand" href="/">博客</a>
 
     <div class="navbar-right">
-      <li class="navbar-right">
+      <div class="navbar-right">
         {{#if user}}
            {{user.username}}
+           <a href='/account/logout' class='btn btn-success'>注销</a>
         {{else}}
            <a class="btn" href="/account/login">登录</a>
            <a class="btn" href="/account/register">注册</a>
         {{/if}}
-      </li>
+      </div>
     </div>
   </div>
 </nav>
