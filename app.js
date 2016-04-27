@@ -17,7 +17,7 @@ import authRequired from './utils/auth-required';
 import hbsHelper from './utils/hbs-helper';
 import config from './config';
 
-var app = express();
+const app = express();
 //connect mongodb
 mongoose.connect(config.mongodb);
 
@@ -50,7 +50,7 @@ app.use('/account', account);
 app.use('/admin', authRequired, admin);
 // catch 404 and forward to error handler
 app.use((req, res, next) => {
-  var err = new Error('Not Found');
+  const err = new Error('Not Found');
   err.status = 404;
   next(err);
 });

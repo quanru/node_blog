@@ -5,20 +5,22 @@
 </head>
 <body>
 {{>nav}}
+  <div class="container center-wrapper">
   <a href='/admin/post' class='btn btn-success'>创建</a>
-  <table class="table">
-    <tbody>
-      {{#each posts}}
-        <tr>
-          <td><a href="/post/{{id}}">{{title}}</a></td>
-          <td>{{detailDate date}}</td>
-          <td>
-            <a class="btn btn-xs btn-primary">编辑</a>
-            <a class="btn btn-xs btn-danger">删除</a>
-          </td>
-        </tr>
-      {{/each}}
-    </tbody>
-  </table>
+    <table class="table col-md-6 center">
+      <tbody>
+        {{#each posts}}
+          <tr class="">
+            <td><a href="/account/post/{{id}}">{{title}}</a></td>
+            <td>{{detailDate date}}</td>
+            <td>
+              <a href="/admin/post/{{id}}" class="btn btn-xs btn-primary">编辑</a>
+              <a href="/account/delPost/{{id}}" class="btn btn-xs btn-danger">删除</a>
+            </td>
+          </tr>
+        {{/each}}
+      </tbody>
+    </table>
+  </div>
 </body>
 </html>

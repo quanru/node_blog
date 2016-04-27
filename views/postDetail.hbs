@@ -1,0 +1,17 @@
+<html>
+<head>
+  {{>head}}
+  <script src='/javascripts/marked.min.js'></script>
+</head>
+<body id="register">
+{{>nav}}
+<div class="center-wrapper container">
+  <div class="center col-md-6" id="markedown">
+{{ content }}
+  </div>
+</div>
+<script>
+    $('#markedown').html(marked($('#markedown').text()));
+</script>
+</body>
+</html>

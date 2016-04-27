@@ -1,12 +1,14 @@
 import express from 'express';
 import Post from '../../models/post';
 import User from '../../models/user';
+import mongodb from 'mongodb';
 
-var router = express.Router();
+const router = express.Router();
+const ObjectID = mongodb.ObjectID;
 
 router.route('/')
-    .get(function (req, res) {
-        var user = res.locals.user;
+    .get((req, res) => {
+        const user = res.locals.user;
         if(!user.active) {
             return res.render('message', {
                 title: '请先激活',
@@ -15,14 +17,50 @@ router.route('/')
         }
         res.render('post');
     })
-    .post(function (req, res, next) {
+    .post((req, res) => {
         Post.create({
             title: req.body.title,
             content: req.body.content,
             author: req.user.id
-        }, function (err, post) {
+        },  (err, post) => {
             if (err) return next(err);
-            else return res.redirect('/admin/post');
+            else return res.redirect('/admin/posts');
+        });
+    });
+
+router.route('/:pid')
+    .get((req, res) => {
+        Post.findOne({
+            _id: new ObjectID(req.params.pid)
+        }, (err, post) => {
+            if(err) return next(err);
+            if(!post) {
+                res.render('message', {
+                    title: '日记不存在',
+                    content: '你访问的日记不存在'
+                });
+            } else {
+                res.render('post', post);
+            }
+        });
+    })
+    .post((req, res) => {
+        Post.findOne({
+            _id: new ObjectID(req.params.pid)
+        }, (err, post) => {
+            if(err) return next(err);
+            if(!post) {
+                res.render('message', {
+                    title: '日记不存在',
+                    content: '你访问的日记不存在'
+                });
+            } else {
+                post.title = req.body.title;
+                post.content = req.body.content;
+                post.author = req.user.id;
+                post.save();
+                res.redirect('/admin/posts');
+            }
         });
     });
 

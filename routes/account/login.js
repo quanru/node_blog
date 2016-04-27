@@ -3,12 +3,12 @@ import passport from 'passport';
 import url from 'url';
 import isEmpty from '../../utils/isEmpty';
 
-var router = express.Router();
-var app = express();
+const router = express.Router();
+const app = express();
 
 router.get('/', (req, res) => {
-  var url_parts = url.parse(req.url, true);
-  var query = url_parts.query;
+  const url_parts = url.parse(req.url, true);
+  const query = url_parts.query;
   app.locals.next = query;
     res.render('login.hbs', {
         title: '登陆'
@@ -27,7 +27,7 @@ router.post(
     req.logIn(user, (err) => {
       if(err) return next(err);
       req.session.authenticated = true;
-      var jump = app.locals.next;
+      const jump = app.locals.next;
       console.log(jump);
       if(!isEmpty(jump)) {
         return res.redirect(jump.next);

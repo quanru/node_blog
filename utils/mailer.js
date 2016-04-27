@@ -1,10 +1,10 @@
-var nodemailer = require('nodemailer');
-var config = require('../config');
-var smtpConfig = config.smtp;
+const nodemailer = require('nodemailer');
+const config = require('../config');
+const smtpConfig = config.smtp;
 
-var transporter = nodemailer.createTransport(smtpConfig);
+const transporter = nodemailer.createTransport(smtpConfig);
 
-var defaultMail = {
+const defaultMail = {
     from: 'quanru <quanru@yeah.net>',
     text: 'hello'
 };

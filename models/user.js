@@ -11,7 +11,7 @@ var UserSchema = new Schema({
   },
   title: {
     type: String,
-    default: '未命名博客'
+    default: '未命名日记'
   },
   description: {
     type: String,

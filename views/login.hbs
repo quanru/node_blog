@@ -6,12 +6,16 @@
 </head>
 <body>
   {{>nav}}
-<div class="center-wrapper">
-  <div class="center">
+<div>
+  <div class="center-block col-centered col-md-3">
     <h3>账户登陆</h3>
     <form action="/account/login" method="post">
-      <input name="username" type="text" class="form-control" placeholder="邮箱">
-      <input name="password" type="password" class="form-control" placeholder="密码">
+      <div class="form-group">
+        <input name="username" type="text" class="form-control" placeholder="邮箱">
+      </div>
+      <div class="form-group">
+        <input name="password" type="password" class="form-control" placeholder="密码">
+      </div>
       <div class="alert alert-danger" style="display: none;"></div>
       <div class="alert alert-success" style="display: none;"></div>
       <div class="pull-right">

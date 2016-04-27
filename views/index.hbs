@@ -5,11 +5,24 @@
 <body id="register">
 {{>nav}}
 <div class="center-wrapper">
-  <div class="center text-center">
+  <div class="center text-center center-block col-centered col-md-6 ">
     <h3>欢迎来到{{ title }}</h3>
-    <a href='/admin/post' class='btn btn-success'>创建</a>
-    <a href='/admin/posts' class='btn btn-success'>归档</a>
-    <a href='/admin/profile' class='btn btn-success'>设置</a>
+    <table class="table col-md-6 center">
+      <tbody>
+        {{#each posts}}
+          <tr class="">
+            <td><a href="/account/post/{{id}}">{{title}}</a></td>
+            <td>{{detailDate date}}</td>
+            <td>
+              <a href="/admin/post/{{id}}" class="btn btn-xs btn-primary">编辑</a>
+              <a href="/account/delPost/{{id}}" class="btn btn-xs btn-danger">删除</a>
+            </td>
+          </tr>
+        {{/each}}
+      </tbody>
+    </table>
+    <a href='/admin/post' class='btn btn-success'>新建日记</a>
+    <a href='/admin/posts' class='btn btn-success'>查看更多</a>
     </form>
   </div>
 </div>

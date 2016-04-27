@@ -2,8 +2,8 @@ import express from 'express';
 import path from 'path';
 import multer from 'multer';
 
-var router = express.Router();
-var upload = multer({ dest: path.resolve('public/uploads')});
+const router = express.Router();
+const upload = multer({ dest: path.resolve('public/uploads')});
 
 router.route('/')
     .get((req, res) => {
