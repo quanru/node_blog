@@ -2,31 +2,35 @@
 <html lang="en">
 <head>
     <link rel="stylesheet" href="/stylesheets/post.css">
-    {{>head}}
+    [[= partial('partials/head.dot') ]]
     <script src='/javascripts/marked.min.js'></script>
     <script src='/javascripts/post.js'></script>
 </head>
 <body>
-{{>nav}}
-<form method="post" action="/admin/post/{{id}}">
+[[= partial('partials/nav.dot') ]]
+<form method="post" action="/admin/post/[[= model.id || '']]">
   <div  class="row">
     <div class="col-sm-6">
       <div class="form-group">
         <label for="title">标题</label>
-        <input id="title" name="title" class="form-control" value="{{ title }}">
+        [[? model.id]]
+        <input id="title" name="title" class="form-control" value="[[= model.title || '']]">
+        [[??]]
+        <input id="title" name="title" class="form-control">
+        [[?]]
       </div>
-      <textarea id="content" name="content" class="form-control">{{ content }}</textarea>
+      <textarea id="content" name="content" class="form-control">[[= model.content || '']]</textarea>
     </div>
     
     <div class="col-sm-6">
       <div id="preview"></div>
     </div>
   </div>
-  {{#if title}}
+  [[? model.id]]
   <button type='submit' class='btn btn-success'>保存</button>
-  {{else}}
+  [[??]]
   <button type='submit' class='btn btn-success'>创建</button>
-  {{/if}}
+  [[?]]
 </form>
 </form>
 </body>

@@ -1,5 +1,6 @@
 import express from 'express';
 import Post from '../models/post';
+import dateFormat from '../utils/dot-date-helper';
 
 let router = express.Router();
 
@@ -10,7 +11,8 @@ router.get('/', (req, res, next) => {
             if(err) return next(err);
             res.render('index', {
                 posts: posts,
-                title: '你的日记'
+                title: '你的日记',
+                dateFormat: dateFormat
             });
         });
     } else {

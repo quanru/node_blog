@@ -21,8 +21,4 @@ function dateFormat(datetime, format) {
     return format;
 }
 
-export default (hbs) => {
-    hbs.registerHelper('detailDate', (date, block) => {
-        return dateFormat(date, 'yyyy-MM-dd hh:mm:ss');
-    });
-};
+export default dateFormat;

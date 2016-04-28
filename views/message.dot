@@ -1,0 +1,9 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    [[= partial('partials/head.dot') ]]
+</head>
+<body>
+  <h2>[[= model.content ]]</h2>
+</body>
+</html>

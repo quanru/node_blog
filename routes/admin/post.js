@@ -15,7 +15,9 @@ router.route('/')
                 content: user.username + '您好！请前往 <a href="http://' + user.username.match(/@(.{1,})/)[1] + '">登陆邮箱</a>并激活账户。'
               });
         }
-        res.render('post');
+        res.render('post', {
+            title: '写日记'
+        });
     })
     .post((req, res) => {
         Post.create({
@@ -40,6 +42,7 @@ router.route('/:pid')
                     content: '你访问的日记不存在'
                 });
             } else {
+                console.log(post);
                 res.render('post', post);
             }
         });

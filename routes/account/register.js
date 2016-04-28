@@ -6,7 +6,7 @@ import config from '../../config';
 let router = express.Router();
 
 router.get('/', (req, res) => {
-    res.render('register.hbs', {
+    res.render('register', {
         title: '注册'
     });
 });

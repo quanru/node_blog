@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  {{>head}}
+  [[= partial('partials/head.dot') ]]
   <script src="/javascripts/account.js"></script>
 </head>
 <body>
-  {{>nav}}
+  [[= partial('partials/nav.dot') ]]
 <div>
   <div class="center-block col-centered col-md-3">
     <h3>账户登陆</h3>

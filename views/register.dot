@@ -1,10 +1,10 @@
 <html>
 <head>
-  {{>head}}
+  [[= partial('partials/head.dot') ]]
   <script src="/javascripts/account.js"></script>
 </head>
 <body id="register">
-{{>nav}}
+[[= partial('partials/nav.dot') ]]
 <div class="center-wrapper container">
   <div class="center-block col-centered col-md-3">
     <h3>你的日记</h3>

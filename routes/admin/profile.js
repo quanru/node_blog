@@ -7,7 +7,10 @@ let upload = multer({ dest: path.resolve('public/uploads')});
 
 router.route('/')
     .get((req, res) => {
-        res.render('profile', {user: req.user});
+        res.render('profile', {
+            user: req.user,
+            title: '个人资料设置'
+        });
     })
     .post(upload.single('avatar'), (req, res, next) => {
         req.user.title = req.body.title;
@@ -17,8 +20,10 @@ router.route('/')
         }
         req.user.save((err, user) => {
              if (err) next(err);
-             res.render('profile', {user: user});
-             res.redirect('/admin/profile');
+             res.render('profile', {
+                user: user,
+                title: '个人资料设置'
+            });
          });
     });
 

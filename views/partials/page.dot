@@ -1,0 +1,14 @@
+<nav>
+  <ul class="pagination">
+    <li><a href="?page=[[= model.pager.prev]]">&laquo;</a></li>
+    [[~ pager.pages :value:index]]
+      <li
+        [[? value.isCurrentPage]] 
+          class="active" 
+        [[?]]>
+        <a href="?page=[[= value.this]]">[[= value.this]]</a>
+      </li>
+    [[~]]
+    <li><a href="?page=[[= value.pager.next]]">&raquo;</a></li>
+  </ul>
+</nav>

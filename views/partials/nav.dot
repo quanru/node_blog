@@ -5,14 +5,14 @@
 
     <div class="navbar-right">
       <div class="navbar-right">
-        {{#if user}}
-           {{user.username}}
+        [[? model.user]]
+           [[= model.user.username]]
            <a href='/account/logout' class='btn btn-success'>注销</a>
            <a href='/admin/profile' class='btn btn-success'>设置</a>
-        {{else}}
+        [[??]]
            <a class="btn" href="/account/login">登录</a>
            <a class="btn" href="/account/register">注册</a>
-        {{/if}}
+        [[?]]
       </div>
     </div>
   </div>

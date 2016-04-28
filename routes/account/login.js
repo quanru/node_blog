@@ -10,7 +10,7 @@ router.get('/', (req, res) => {
   let url_parts = url.parse(req.url, true);
   let query = url_parts.query;
   app.locals.next = query;
-    res.render('login.hbs', {
+    res.render('login', {
         title: '登陆'
     });
 });

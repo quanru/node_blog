@@ -4,7 +4,7 @@ import favicon from 'serve-favicon';
 import logger from 'morgan';
 import cookieParser from 'cookie-parser';
 import bodyParser from 'body-parser';
-import hbs from 'hbs';
+import engine from 'express-dot-engine';
 import mongoose from 'mongoose';
 import routes from './routes';
 import account from './routes/account';
@@ -14,7 +14,6 @@ import passport from 'passport';
 import {Strategy as LocalStrategy} from 'passport-local';
 import User from './models/user';
 import authRequired from './utils/auth-required';
-import hbsHelper from './utils/hbs-helper';
 import config from './config';
 
 let app = express();
@@ -22,10 +21,11 @@ let app = express();
 mongoose.connect(config.mongodb);
 
 // view engine setup
+app.engine('dot', engine.__express);
 app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'hbs');
-hbs.registerPartials(__dirname + '/views/partials');
-hbsHelper(hbs);
+app.set('view engine', 'dot');
+// hbs.registerPartials(__dirname + '/views/partials');
+// hbsHelper(hbs);
 
 app.use(favicon(__dirname + '/public/favicon.ico'));
 app.use(logger('dev'));

@@ -1,13 +1,13 @@
 <html>
 <head>
-  {{>head}}
+  [[= partial('partials/head.dot') ]]
   <script src='/javascripts/marked.min.js'></script>
 </head>
 <body id="register">
-{{>nav}}
+[[= partial('partials/nav.dot') ]]
 <div class="center-wrapper container">
   <div class="center col-md-6" id="markedown">
-{{ content }}
+[[= model.content ]]
   </div>
 </div>
 <script>

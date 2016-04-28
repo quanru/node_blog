@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  [[= partial('partials/head.dot') ]]
+</head>
+<body>
+[[= partial('partials/nav.dot') ]]
+  <div class="container center-wrapper">
+    <table class="table col-md-6 center">
+      <tbody>
+        [[~ model.posts :value:index]]
+          <tr class="">
+            <td><a href="/account/post/[[= value.id]]">[[= value.title]]</a></td>
+            <td>[[= model.dateFormat(value.date,  'yyyy-MM-dd hh:mm:ss')]]</td>
+            <td>
+              <a href="/admin/post/[[= value.id]]" class="btn btn-xs btn-primary">编辑</a>
+              <a href="/account/delPost/[[= value.id]]" class="btn btn-xs btn-danger">删除</a>
+            </td>
+          </tr>
+        [[~]]
+      </tbody>
+    </table>
+    <a href='/admin/post' class='btn btn-success'>新建日记</a>
+  </div>
+</body>
+</html>
