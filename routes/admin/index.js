@@ -3,7 +3,7 @@ import profile from './profile';
 import posts from './posts';
 import post from './post';
 
-const router = express.Router();
+let router = express.Router();
 
 router.use('/profile', profile);
 router.use('/posts', posts);

@@ -9,6 +9,7 @@
     <h3>欢迎来到{{ title }}</h3>
     <table class="table col-md-6 center">
       <tbody>
+        {{# if posts}}
         {{#each posts}}
           <tr class="">
             <td><a href="/account/post/{{id}}">{{title}}</a></td>
@@ -19,6 +20,7 @@
             </td>
           </tr>
         {{/each}}
+        {{/if}}
       </tbody>
     </table>
     <a href='/admin/post' class='btn btn-success'>新建日记</a>

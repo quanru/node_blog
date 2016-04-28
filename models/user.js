@@ -1,8 +1,8 @@
 import mongoose from 'mongoose';
 import passportLocalMongoose from 'passport-local-mongoose';
-var Schema = mongoose.Schema;
+let Schema = mongoose.Schema;
 
-var UserSchema = new Schema({
+let UserSchema = new Schema({
   username: {type: String, index: {unique: true}},
   password: String,
   avatar: {

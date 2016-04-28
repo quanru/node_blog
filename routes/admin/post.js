@@ -3,12 +3,12 @@ import Post from '../../models/post';
 import User from '../../models/user';
 import mongodb from 'mongodb';
 
-const router = express.Router();
-const ObjectID = mongodb.ObjectID;
+let router = express.Router();
+let ObjectID = mongodb.ObjectID;
 
 router.route('/')
     .get((req, res) => {
-        const user = res.locals.user;
+        let user = res.locals.user;
         if(!user.active) {
             return res.render('message', {
                 title: '请先激活',

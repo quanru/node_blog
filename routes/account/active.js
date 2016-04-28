@@ -1,6 +1,6 @@
 import express from 'express';
 import User from '../../models/user';
-const router = express.Router();
+let router = express.Router();
 
 router.get('/:activeToken',  (req, res, next) => {
     User.findOne({

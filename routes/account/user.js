@@ -3,13 +3,13 @@ import User from '../../models/user';
 import Post from '../../models/post';
 import 'mongoose-query-paginate';
 
-const router = express.Router();
+let router = express.Router();
 
 router.get('/:id', (req, res, next) => {
     User.findById(req.params.id, (err, author) => {
         if(err || !author) return next(err);
 
-        const options = {
+        let options = {
             perPage: 3,
             delta: 2,
             page: req.query.page || 1

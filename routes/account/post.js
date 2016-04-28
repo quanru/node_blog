@@ -2,8 +2,8 @@ import express from 'express';
 import Post from '../../models/post';
 import mongodb from 'mongodb';
 
-const ObjectID = mongodb.ObjectID;
-const router = express.Router();
+let ObjectID = mongodb.ObjectID;
+let router = express.Router();
 
 router.route('/:pid')
     .get((req, res) => {

@@ -1,5 +1,5 @@
 export default (obj) => {
-  for (const key in obj) {
+  for (let key in obj) {
     return false;
   }
   return true;

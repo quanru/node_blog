@@ -7,7 +7,7 @@ import user from './user';
 import post from './post';
 import delPost from './delPost';
 
-const router = express.Router();
+let router = express.Router();
 
 router.use('/login', login);
 router.use('/active', active);

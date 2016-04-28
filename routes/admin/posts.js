@@ -1,7 +1,7 @@
 import express from 'express';
 import Post from '../../models/post.js';
 
-const router = express.Router();
+let router = express.Router();
 
 router.route('/')
     .get((req, res, next) => {
