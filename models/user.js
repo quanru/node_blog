@@ -15,7 +15,7 @@ let UserSchema = new Schema({
   },
   description: {
     type: String,
-    default: '博主很懒，还没有添加任何描述......'
+    default: '还没有添加任何描述......'
   },
   active: {
     type: Boolean,
