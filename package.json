@@ -19,7 +19,7 @@
     "express-session": "^1.13.0",
     "font-awesome": "^4.6.1",
     "jquery": "^2.2.3",
-    "mongoose": "^4.4.13",
+    "mongoose": "^5.12.2",
     "mongoose-query-paginate": "^1.0.1",
     "morgan": "~1.6.1",
     "multer": "^1.1.0",
